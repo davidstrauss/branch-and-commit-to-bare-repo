@@ -16,7 +16,6 @@ def add_commit(repo, ref, msg, author, path=None, content=None, parent=None):
 
 committer_name = 'Drupal Druplicon'
 committer_email = 'druplicon@example.com'
-branch_name = 'hello_world'
 
 git_short_name = 'druplicon'
 issue_number = 123456
@@ -39,18 +38,18 @@ add_commit(repo, 'refs/heads/master', 'Initial commit.', author)
 
 # Create the branch (if non-existent).
 
-print('Creating branch: {}'.format(branch_name))
 
 ref= 'namespaces/issue_{}/refs/heads/{}/comment_{}'.format(
 	issue_number,
 	git_short_name,
 	comment_number)
+print('Reference name: {}'.format(ref))
 branch = repo.create_branch(ref, repo.head.get_object(), True)
 
 # Commit the change.
 
 #parent = repo.head.target
 #parent = None
-add_commit(repo, 'refs/heads/master', commit_message, author, file_path, file_content, repo.head.target)
+add_commit(repo, ref, commit_message, author, file_path, file_content, repo.head.target)
 
 input("Press Enter to clean up the temporary git repository and exit...")
