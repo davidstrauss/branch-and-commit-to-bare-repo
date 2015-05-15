@@ -42,7 +42,7 @@ if repo.head_is_unborn:
 # Create the branch (if non-existent).
 
 
-ref= 'namespaces/issue_{}/refs/heads/{}/comment_{}'.format(
+ref= 'refs/namespaces/issue_{}/refs/heads/{}/comment_{}'.format(
 	issue_number,
 	git_short_name,
 	comment_number)
