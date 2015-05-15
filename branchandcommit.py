@@ -34,7 +34,10 @@ author = pygit2.Signature(committer_name, committer_email)
 tmpdir = tempfile.TemporaryDirectory(suffix='.git', prefix='branchandcommit-')
 print('Creating bare repository: {}'.format(tmpdir.name))
 repo = pygit2.init_repository(tmpdir.name, True)
-add_commit(repo, 'refs/heads/master', 'Initial commit.', author)
+
+# This should always be true for the temporary repo, but it's a good check.
+if repo.head_is_unborn:
+    add_commit(repo, 'refs/heads/master', 'Initial commit.', author)
 
 # Create the branch (if non-existent).
 
