@@ -55,6 +55,6 @@ branch = repo.create_branch(ref, repo.head.get_object(), True)
 #parent = None
 add_commit(repo, ref, commit_message, author, file_path, file_content, branch.target)
 
-repo.create_reference('refs/heads/latest', ref)
+repo.create_reference('refs/heads/latest_{}'.git_short_name, ref)
 
 input("Press Enter to clean up the temporary git repository and exit...")
