@@ -50,6 +50,6 @@ branch = repo.create_branch(ref, repo.head.get_object(), True)
 
 #parent = repo.head.target
 #parent = None
-add_commit(repo, ref, commit_message, author, file_path, file_content, repo.head.target)
+add_commit(repo, ref, commit_message, author, file_path, file_content, branch.target)
 
 input("Press Enter to clean up the temporary git repository and exit...")
